@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leseverstehen A2 – HelloDeutsch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f9f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #00796b;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .timer-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .menu-box {
+      background: #004d40;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .menu-box:hover {
+      background: #005e50;
+    }
+    .timer-box {
+      background: #004d40;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .action-buttons button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .save-button {
+      background-color: #1976d2;
+      color: white;
+    }
+    .submit-button {
+      background-color: #43a047;
+      color: white;
+    }
+    main {
+      padding: 2rem;
+    }
+    .section-box {
+      display: none;
+    }
+    .section-box.active {
+      display: block;
+    }
+    .text-block {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 5px;
+    }
+    .dropzone {
+      border: 2px dashed #009688;
+      background: #e0f7fa;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 4px;
+      min-height: 40px;
+    }
+    .option {
+      background: #00796b;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+      cursor: grab;
+    }
+  </style>
+  <script>
+    let remainingSeconds = 5400;
+    function updateTimer() {
+      const timerDisplay = document.getElementById("timer");
+      const minutes = Math.floor(remainingSeconds / 60);
+      const seconds = remainingSeconds % 60;
+      timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      if (remainingSeconds > 0) {
+        remainingSeconds--;
+      } else {
+        alert("⏰ Die Zeit ist abgelaufen. Ihre Antworten werden jetzt abgegeben.");
+        submitExam();
+      }
+    }
+    function saveAnswers() {
+      alert("✅ Deine Antworten wurden gespeichert.");
+    }
+    function submitExam() {
+      const confirmSubmit = confirm("Möchtest du wirklich abgeben?");
+      if (confirmSubmit) {
+        const totalPoints = calculateScore();
+        const result = totalPoints >= 20 ? '✅ Bestanden!' : '❌ Nicht bestanden';
+        alert(`🎉 Deine Abgabe war erfolgreich!\n\n${result}\nPunkte: ${totalPoints} von 25`);
+      }
+    }
+    function scrollToTeil(id) {
+      document.querySelectorAll('.section-box').forEach(el => el.classList.remove('active'));
+      const selected = document.getElementById(id);
+      if (selected) selected.classList.add('active');
+    }
+    function calculateScore() {
+      return 22;
+    }
+    setInterval(updateTimer, 1000);
+  </script>
+</head>
+<body>
+  <header>
+    <h1>HalloDeutsch</h1>
+    <div class="timer-menu">
+      <div class="menu-box" onclick="scrollToTeil('teil1')">
+        <strong>Leseverstehen Teil 1:</strong><br />25 Punkte
+      </div>
+      <div class="menu-box" onclick="scrollToTeil('teil2')">
+        <strong>Leseverstehen Teil 2:</strong><br />25 Punkte
+      </div>
+      <div class="timer-box">
+        ⏳ Verbleibende Zeit: <span id="timer">90:00</span><br>
+        <div class="action-buttons">
+          <button class="save-button" onclick="saveAnswers()">💾 Speichern</button>
+          <button class="submit-button" onclick="submitExam()">🏁 Abgabe</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div id="teil1" class="section-box active">
+      <h2>Leseverstehen Teil 1</h2>
+      <p>Ziehen Sie die richtige Überschrift zu jedem Textblock. Jede Überschrift nur einmal verwenden.</p>
+      <div class="text-block">
+        <div class="dropzone" data-id="1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <strong>1.</strong> Wer ist der typische Computerfan?... (Text gekürzt für Übersicht)
+      </div>
+      <div class="text-block">
+        <div class="dropzone" data-id="2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <strong>2.</strong> „Bahn&Bike“ heißt ein 222-seitiger Prospekt... (Text gekürzt)
+      </div>
+      <div class="text-block">
+        <div class="dropzone" data-id="3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <strong>3.</strong> Ausführliche Informationen zum Thema „Schlafstörungen“... (Text gekürzt)
+      </div>
+      <div class="text-block">
+        <div class="dropzone" data-id="4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <strong>4.</strong> Jetzt wird für Familien Reisen mit der Bahn... (Text gekürzt)
+      </div>
+      <div class="text-block">
+        <div class="dropzone" data-id="5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <strong>5.</strong> Touristen zwischen 14 und 29 Jahren... (Text gekürzt)
+      </div>
+      <div>
+        <h3>Mögliche Überschriften</h3>
+        <div class="option" draggable="true" id="a" onclick="selectOption('a')">a. Immer mehr deutsche Familien reisen mit der Bahn</div>
+        <div class="option" draggable="true" id="b" onclick="selectOption('b')">b. Buchtipp: Hilfe bei Schlafproblemen</div>
+        <div class="option" draggable="true" id="c" onclick="selectOption('c')">c. Der Computer: Liebstes Hobby von Deutschlands Frauen</div>
+        <div class="option" draggable="true" id="d" onclick="selectOption('d')">d. Neu bei der Bahn: Spezielle Informationen und Angebote für Radfahrer</div>
+        <div class="option" draggable="true" id="e" onclick="selectOption('e')">e. Neu am Markt: Billige Schlaftabletten</div>
+        <div class="option" draggable="true" id="f" onclick="selectOption('f')">f. Familien reisen billiger</div>
+        <div class="option" draggable="true" id="g" onclick="selectOption('g')">g. Urlaub mit dem Fahrrad in Deutschland immer beliebter</div>
+        <div class="option" draggable="true" id="h" onclick="selectOption('h')">h. Kultur im Urlaub: Interessen je nach Alter unterschiedlich</div>
+        <div class="option" draggable="true" id="i" onclick="selectOption('i')">i. Umfrage: Wer verwendet den Computer am häufigsten?</div>
+        <div class="option" draggable="true" id="j" onclick="selectOption('j')">j. Deutschland: Immer mehr Touristen reisen in den Westen</div>
+      </div>
+    </div>
+    <div id="teil2" class="section-box">
+      <h2>Leseverstehen Teil 2</h2>
+      <p>Lesen Sie den Text und die Aufgaben 6–10. Welche Lösung (a, b oder c) ist jeweils richtig?<br>
+      Markieren Sie Ihre Lösungen für die Aufgaben 6–10 auf dem Antwortbogen.</p>
+      <!-- Hier kommt dein Inhalt für Teil 2 rein -->
+    </div>
+  </main>
+  <script>
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+    function drop(ev) {
+      ev.preventDefault();
+      const data = ev.dataTransfer.getData("text");
+      const dragged = document.getElementById(data);
+      if (!ev.target.querySelector('.option')) {
+        ev.target.appendChild(dragged);
+      }
+    }
+    let selectedOption = null;
+    function selectOption(letter) {
+      selectedOption = document.getElementById(letter);
+      const zones = document.querySelectorAll(".dropzone");
+      zones.forEach(zone => {
+        zone.onclick = () => {
+          if (selectedOption && !zone.querySelector('.option')) {
+            zone.appendChild(selectedOption);
+          }
+        }
+      });
+    }
+    document.querySelectorAll('.option').forEach(opt => {
+      opt.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData("text", e.target.id);
+      });
+    });
+  </script>
+</body>
+</html>

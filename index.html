@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelloDeutsch</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 20px 40px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00796b;
+    }
+
+    .navbar-menu {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .navbar-menu a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .navbar-menu a:hover {
+      border-bottom: 2px solid #00796b;
+      padding-bottom: 2px;
+    }
+
+    .navbar-actions {
+      display: flex;
+      gap: 20px;
+    }
+
+    .book-btn {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .login-btn:hover {
+      background-color: #00796b;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Modern Navbar -->
+  <header class="navbar">
+    <div class="navbar-logo">HelloDeutsch</div>
+    <nav class="navbar-menu">
+      <a href="#home">Home</a>
+      <a href="#products">Our Products</a>
+      <a href="#vision">Our Vision</a>
+      <a href="#book-now">Book Now</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="navbar-actions">
+      <a href="#book-now" class="book-btn">Book your place</a>
+      <a href="login.html" class="login-btn">Login</a> <!-- 💛 Login button added and styled in green -->
+    </div>
+  </header>
+
+</body>
+</html>
+
+  
+
+  <!-- HOME / HERO SECTION -->
+  <section id="home">
+    <div class="overlay"></div>
+    <div class="home-content">
+      <h2>Your Partner for German Language & Integration</h2>
+      <p>HelloDeutsch is your trusted platform for mastering the German language, navigating integration courses, and preparing for TELC exams with confidence. ...</p>
+      <a href="#vision" class="btn">Read More</a>
+    </div>
+  </section>
+
+  <!-- OUR PRODUCTS SECTION -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <p class="intro-text">
+      Ready to expand your skills?<br>
+      HelloDeutsch helps you master German, prepare for TELC exams, and navigate integration courses with confidence.
+    </p>
+
+    <!-- Product 1 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="german-class.jpg" alt="German Class">
+      </div>
+      <div class="product-info">
+        <h3>German 1-to-1 Online Class</h3>
+        <p>
+          Looking for <strong>German exam preparation from A1 to C1</strong> with a <strong>native speaker</strong>?
+          This 1-on-1 class is tailored to your needs, whether you need help with
+          <strong>writing, grammar, or improving your speaking skills</strong>.
+          Get personalized support and focused training to boost your confidence and achieve your language goals.
+        </p>
+        <ul>
+          <li>✅ <strong>Duration:</strong> 60 minutes per session</li>
+          <li>✅ <strong>Format:</strong> Live online session</li> 
+          <li>✅ <strong>Flexible Scheduling:</strong> Book easily through the booking calendar</li>
+          <li>✅ <strong>Includes:</strong> Personalized exercises, mock exams & speaking practice</li>
+          <li>✅ <strong>Recap Provided:</strong> Summary of key discussion points after each session</li>
+          <li>✅ <strong>For Levels:</strong> A1 to C1 – ideal for TELC, Goethe, and TestDaF preparation</li>
+        </ul>
+        <div class="product-footer">
+         <a href="https://calendly.com/hellodeutsch/call" class="btn" target="_blank">Book Now</a>
+          <span class="price-tag">€35</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="telc.jpg" alt="TELC Exam">
+      </div>
+      <div class="product-info">
+        <h3>TELC Exam Preparation</h3>
+        <p>The TELC exams are now fully digital, making it essential to familiarize yourself with the format and structure before test day. In this preparation course, you’ll learn:</p>
+        <ul>
+          <li>✅ <strong>Exam Structure:</strong> Understand each section and what to expect</li>
+          <li>✅ <strong>Digital Navigation:</strong> Learn how to efficiently complete the test online for 3 days</li>
+          <li>✅ <strong>Live Online Sessions:</strong> Interactive training to build confidence</li>
+          <li>✅ <strong>Flexible Scheduling:</strong> Book your session based on availability</li>
+          <li>✅ <strong>Recap Provided:</strong> Key discussion points summarized after each session</li>
+        </ul>
+        <p>Make sure you're fully prepared and confident for your TELC exam.</p>
+        <div class="product-footer">
+         <a href="https://calendly.com/hellodeutsch/call" class="btn" target="_blank">Book Now</a>
+          <span class="price-tag">€95</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="visa.jpg" alt="Visa Support">
+      </div>
+      <div class="product-info">
+        <h3>Visa Documentation Preparation</h3>
+        <p>We help you prepare and organize your visa documents, ensuring that everything needed for your application is correctly filled out. Our service includes guidance on required documents and assistance with completing the forms.</p>
+        <p>While we cannot guarantee a successful application, we have worked on hundreds of visa applications with a 98% success rate. Get professional support to make your visa process smoother and stress-free!</p>
+        <div class="product-footer">
+            <a href="https://calendly.com/hellodeutsch/call" class="btn" target="_blank">Book Now</a>
+          <span class="price-tag">€75</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="integration.jpg" alt="Integration Course">
+      </div>
+      <div class="product-info">
+        <h3>German Integration Course</h3>
+        <p>Want to be fully prepared for life in Germany? From understanding Steuernummer (tax ID) to knowing the difference between Kaltmiete and Warmmiete, and even important facts like why almost everything is closed on Sundays—we’ve got you covered!</p>
+        <ul>
+          <li>✅ <strong>Live Online Sessions:</strong> Interactive and practical learning</li>
+          <li>✅ <strong>Flexible Booking:</strong> Choose a time that fits your schedule</li>
+          <li>✅ <strong>Recap Provided:</strong> Summary of key points after each session</li>
+        </ul>
+        <p>We don’t just teach and leave you on your own—we support you every step of the way.</p>
+        <div class="product-footer">
+         <a href="https://calendly.com/hellodeutsch/call" class="btn" target="_blank">Book Now</a>
+          <span class="price-tag">€40</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Vision Section -->
+  <section id="vision">
+    <h2>Our Vision</h2>
+    <div class="vision-content">
+      <p>At HelloDeutsch, we believe that moving to Germany and integrating into a new culture shouldn't be complicated. That’s why we’re dedicated to making the process easier, smoother, and more accessible for everyone.</p>
+      <p>Hi, I’m Keerat, the founder of HelloDeutsch! Born and raised in Germany with Indian roots, I’ve experienced firsthand what it’s like to grow up between two cultures. This unique background has given me a deep understanding of the challenges and needs of newcomers in Germany.</p>
+      <p>Growing up, I saw how difficult it can be to learn the language, navigate bureaucratic hurdles, and adjust to a new environment. That’s why I created HelloDeutsch—to provide not just German language training, but also personalized support for integration, exam preparation, and visa document assistance.</p>
+      <p>Our goal is simple: to guide and support you every step of the way so you can focus on building your future in Germany with confidence and ease. Let’s make your transition smooth, stress-free, and successful—together!</p>
+      <p class="vision-tagline">Founded to Be Different – Supporting You Beyond Language</p>
+    </div>
+  </section>
+
+  <!-- Book Now Section -->
+  <section id="book-now">
+    <h2>Book Now</h2>
+    <div class="booking-grid">
+      <div class="booking-card">
+        <img src="german-class.jpg" alt="German 1-to-1 Class" />
+        <h3>German 1-to-1 Online Class</h3>
+        <a href="#booking" class="btn">Book Now</a>
+      </div>
+      <div class="booking-card">
+        <img src="telc.jpg" alt="TELC Exam Preparation" />
+        <h3>TELC Exam Preparation</h3>
+        <a href="#booking" class="btn">Book Now</a>
+      </div>
+      <div class="booking-card">
+        <img src="visa.jpg" alt="Visa Documentation Preparation" />
+        <h3>Visa Documentation Preparation</h3>
+        <a href="#booking" class="btn">Book Now</a>
+      </div>
+      <div class="booking-card">
+        <img src="integration.jpg" alt="German Integration Course" />
+        <h3>German Integration Course</h3>
+        <a href="#booking" class="btn">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+ <!-- Testimonials Section -->
+<section id="testimonials">
+    <h2>What Our Students Say</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial-slide active">
+        <p>"The digital exam format was confusing at first, but this course helped me get comfortable with it. The practice exercises made a huge difference. I’d definitely recommend this to anyone taking TELC!"</p>
+        <strong>– Anita</strong>
+      </div>
+      <div class="testimonial-slide">
+        <p>"The best German lessons I’ve had! My teacher tailored each session to my needs, and my speaking skills improved so much in just a few weeks. The recap notes after each lesson were super helpful. Highly recommend!"</p>
+        <strong>– Ashneet K.</strong>
+      </div>
+      <div class="testimonial-slide">
+        <p>"I had no idea where to start with my visa paperwork, but this service made everything easy. My documents were perfectly organized, and I felt confident submitting my application. Super professional and helpful!"</p>
+        <strong>– Rahul Kumar</strong>
+      </div>
+      <div class="testimonial-slide">
+        <p>"Moving to Germany was overwhelming, but this course made everything easier. I now understand how to handle things like Anmeldung and even renting an apartment. A must for newcomers!"</p>
+        <strong>– Priya</strong>
+      </div>
+    </div>
+    <div class="testimonial-controls">
+      <button class="testimonial-btn" onclick="prevSlide()">← Prev</button>
+      <button class="testimonial-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out — we’re here to help!</p>
+    <form action="https://formspree.io/f/meoadpok" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  
+  <!-- JavaScript -->
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+  
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+  
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+  
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  
+    showSlide(currentSlide);
+}
+
+showSlide(currentSlide);
+
+// Contact form submission handler
+const form = document.querySelector("form");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const data = new FormData(form);
+  fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: { Accept: "application/json" },
+  })
+  .then(response => {
+    if (response.ok) {
+      alert("Thanks for your message! We'll get back to you soon.");
+      form.reset();
+    } else {
+      alert("Oops! Something went wrong. Please try again.");
+    }
+  });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+  
+    

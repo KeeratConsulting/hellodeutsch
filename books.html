@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Books – HelloDeutsch</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #00796b;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    header button {
+      background-color: white;
+      color: #00796b;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    section#book-content {
+      padding: 2rem;
+    }
+    section#book-content h2 {
+      text-align: center;
+      color: #00796b;
+    }
+    iframe {
+      border: none;
+      margin-top: 2rem;
+    }
+  </style>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Your Books</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <section id="book-content">
+    <h2>Your Interactive Books</h2>
+    <div id="books-container">
+      <!-- Books will load here -->
+    </div>
+  </section>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAeZQzWrpmWEPmxW7xuwuwK-IQX7K2WC1Q",
+      authDomain: "hellodeutsch-504ff.firebaseapp.com",
+      projectId: "hellodeutsch-504ff",
+      storageBucket: "hellodeutsch-504ff.appspot.com",
+      messagingSenderId: "916135554672",
+      appId: "1:916135554672:web:9fe95df5af9111e7e84eb5",
+      measurementId: "G-QC286PCZ1C"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    const container = document.getElementById("books-container");
+
+    auth.onAuthStateChanged(async (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      try {
+        const docRef = db.collection("users").doc(user.uid);
+        const docSnap = await docRef.get();
+
+        const userData = docSnap.data();
+        const level = userData?.level || "B1";
+
+        if (level === "B1") {
+  container.innerHTML = `<p>Dein interaktives Buch für B1 wird bald verfügbar sein.</p>`;
+} else if (level === "B2") {
+  container.innerHTML = `<p>Dein interaktives Buch für B2 wird bald verfügbar sein.</p>`;
+}
+
+      } catch (error) {
+        container.innerHTML = `<p>Error loading book: ${error.message}</p>`;
+      }
+    });
+
+    function logout() {
+      auth.signOut()
+        .then(() => window.location.href = "login.html")
+        .catch((error) => alert("Logout failed: " + error.message));
+    }
+  </script>
+</body>
+</html>

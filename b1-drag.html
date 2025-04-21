@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leseverstehen A2 – HelloDeutsch</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f9f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #00796b;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .timer-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .menu-box {
+      background: #004d40;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .menu-box:hover {
+      background: #005e50;
+    }
+    .timer-box {
+      background: #004d40;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .action-buttons button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .save-button {
+      background-color: #1976d2;
+      color: white;
+    }
+    .submit-button {
+      background-color: #43a047;
+      color: white;
+    }
+    .reset-button {
+      background-color: #e53935;
+      color: white;
+      font-size: 1.1rem;
+      padding: 0.8rem 1.5rem;
+    }
+    main {
+      display: flex;
+      height: calc(100vh - 70px);
+    }
+    nav {
+      background: #f4f4f4;
+      width: 60%;
+      padding: 1rem;
+      border-right: 1px solid #ccc;
+      overflow-y: auto;
+    }
+    nav .text-snippet {
+      background: #fff;
+      margin-bottom: 2rem;
+      padding: 2rem 1rem 1rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      position: relative;
+    }
+    .dropzone {
+      position: relative;
+      width: 100%;
+      height: 3rem;
+      background: #e0f7fa;
+      border: 2px dashed #009688;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    .dropzone.selected {
+      outline: 3px solid #ff9800;
+    }
+    .drag-option {
+      background: #009688;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      margin: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: left;
+    }
+    .drag-option.dragging {
+      opacity: 0.5;
+    }
+    section {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .headline {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 1rem auto 2rem;
+      text-align: center;
+    }
+    .bottom-reset {
+      width: 100%;
+      text-align: right;
+      padding: 2rem 2rem 0 0;
+    }
+  </style>
+  <script>
+    function scrollToTeil(teil) {
+      const anchor = document.getElementById(teil);
+      if (anchor) anchor.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>HalloDeutsch</h1>
+    <div class="timer-menu">
+      <div class="menu-box" onclick="scrollToTeil('teil1')">
+        <strong>Leseverstehen Teil 1:</strong><br />25 Punkte
+      </div>
+      <div class="menu-box" onclick="scrollToTeil('teil2')">
+        <strong>Leseverstehen Teil 2:</strong><br />25 Punkte
+      </div>
+      <div class="timer-box">
+        ⏳ Verbleibende Zeit: <span id="timer">90:00</span><br>
+        <div class="action-buttons">
+          <button class="save-button" onclick="saveAnswers()">💾 Speichern</button>
+          <button class="submit-button" onclick="submitExam()">🏁 Abgabe</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <nav>
+      <!-- BEGINN TEIL 1: Leseverstehen Drag-and-Drop -->
+      <div id="teil1" class="headline">
+        <iframe src="a2-drag.html" width="100%" height="900" frameborder="0" style="border: none;"></iframe>
+      </div>
+      <!-- BEGINN TEIL 2: Leseverstehen -->
+      <div id="teil2" class="headline">
+        Leseverstehen Teil 2<br>
+        Lesen Sie den Text und die Aufgaben 6–10. Welche Lösung (a, b oder c) ist jeweils richtig?
+        <br>Markieren Sie Ihre Lösungen für die Aufgaben 6–10 auf dem Antwortbogen.
+      </div>
+      <div class="text-snippet">
+        <p><strong>Büro-Werkstatt: Chance für behinderte Menschen</strong><br>
+        Computerarbeit im Auftrag privater Firmen – jeder Dritte findet nach einem fünfmonatigen Kurs einen Job. Interessierte Unternehmen werden noch gesucht....</p>
+      </div>
+    </nav>
+    <section>
+      <div class="options">
+        <div><strong>6.</strong> In einem fünfmonatigen Kurs können die Teilnehmer<br>
+          <label><input type="radio" name="q6"> a eine berufliche Ausbildung abschließen.</label><br>
+          <label><input type="radio" name="q6"> b lernen, was sie in der Schule verpasst haben.</label><br>
+          <label><input type="radio" name="q6"> c praktische Erfahrungen mit der Büroarbeit sammeln.</label>
+        </div>
+        <div><strong>7.</strong> Die Büro-Werkstatt versucht außerdem<br>
+          <label><input type="radio" name="q7"> a auch jenen Arbeitslosen zu helfen, die nicht behindert sind.</label><br>
+          <label><input type="radio" name="q7"> b Behinderte auf die Abschlussprüfungen vorzubereiten.</label><br>
+          <label><input type="radio" name="q7"> c für die behinderten Menschen eine Arbeit zu finden.</label>
+        </div>
+        <div><strong>8.</strong> Laut Gesetz müssen österreichische Firmen pro 25 Beschäftigte<br>
+          <label><input type="radio" name="q8"> a eine besondere Steuer zahlen.</label><br>
+          <label><input type="radio" name="q8"> b einen Behinderten einstellen oder eine monatliche Gebühr bezahlen.</label><br>
+          <label><input type="radio" name="q8"> c für jeden Behinderten monatlich 150 Euro bezahlen.</label>
+        </div>
+        <div><strong>9.</strong> Seit der Vereinsgründung<br>
+          <label><input type="radio" name="q9"> a konnte für ein Drittel der behinderten Kursteilnehmer eine Arbeit gefunden werden.</label><br>
+          <label><input type="radio" name="q9"> b konnte Günther Hos für den Verein schon viel Geld sparen.</label><br>
+          <label><input type="radio" name="q9"> c zahlen Arbeitslose um ein Drittel weniger Steuern.</label>
+        </div>
+        <div><strong>10.</strong> Die Lehrerin, die die Büro-Werkstatt gegründet hat<br>
+          <label><input type="radio" name="q10"> a wollte etwas tun, damit Behinderte einen Arbeitsplatz erhalten.</label><br>
+          <label><input type="radio" name="q10"> b wollte nicht länger Geografie und Geschichte unterrichten.</label><br>
+          <label><input type="radio" name="q10"> c wird nach der Ausbildung der Behinderten nicht mehr gebraucht.</label>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
